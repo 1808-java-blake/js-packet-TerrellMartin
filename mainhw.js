@@ -120,7 +120,14 @@ If values cannot be added, put "Cannot add" in the <span> element
 	}
 
 
-	//number 7
+	/**
+	 * 7. Skills Event
+NOTE: Write unobtrusive Javascript
+When user selects a skill, create an alert with a message similar to:
+	"Are you sure CSS is one of your skills?"
+NOTE: no alert should appear when user deselects a skill.
+	 */
+
 	function alertSkills(){
 		let s = document.getElementsByName("skills");
 		// for(let i = 0; i < s.length; i++){
@@ -134,12 +141,68 @@ If values cannot be added, put "Cannot add" in the <span> element
 	}
 
 
-	//number8
+	/**
+	 * 8. Favorite Color Event
+NOTE: Write unobtrusive Javascript
+NOTE: This is regarding the favoriteColor radio buttons.
+When a user selects a color, create an alert with a message similar to:
+	"So you like green more than blue now?"
+In this example, green is the new value and blue is the old value.
+Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+	 */
+	function thisMyFavoriteColor() 
+	{
+        let color = document.getElementsByName("favoriteColor");
+
+		for (let i = 0; i < color.length; i++) 
+		{
+			color.item(i).addEventListener("click", function () 
+			{
+				if(this.style.backgroundColor)
+				
+					alert("So you like " + this.value + " more than " + this.style.backgroundColor + " ?");
+					
+                for (let j = 0; j < color.length; j++) {
+                    color.item(j).style.backgroundColor = this.value;
+                }
+            });
+        }
+    }
 
 
-	//number 9
+	/**
+	 * 9. Show/Hide Event
+NOTE: Write unobtrusive Javascript
+When user hovers over an employees name:
+	Hide the name if shown.
+	Show the name if hidden.
+	 */
+	function hideThem() {
 
-	//number 10
+		let emp = document.getElementsByClassName("empName");
+  
+		for(let i=0; i < emp.length; i++)
+		{
+			  ele = emp[i];
+				ele.onmouseover = function()
+				{
+
+					this.style.visibility =  "hidden";	
+				}
+				ele.onmouseleave = function(){
+					this.style.visibility = "visible";	
+				}
+		}
+		
+	  };
+
+	/**
+	 * 10. Current Time
+Regarding this element:
+	<h5 id="currentTime"></h5>
+Show the current time in this element in this format: 9:05:23 AM
+The time should be accurate to the second without having to reload the page.
+	 */
 	function currentTime(){
 		//since we have to refresh the time by seconds, we use setInterval(function, 1000) function.
 		let theTimeTimer = setInterval(function () {
@@ -152,22 +215,34 @@ If values cannot be added, put "Cannot add" in the <span> element
 	
 	};
 
-	//number 11
+	/**
+	 * 11. Delay
+Regarding this element:
+	<p id="helloWorld">Hello, World!</p>
+Three seconds after a user clicks on this element, change the text to a random color.
+	 */
 	function colorDelay(){
-		document.getElementById("helloWorld").addEventListener("click", function () {
-			  setTimeout(function () {
+		document.getElementById("helloWorld").addEventListener("click", function ()
+		 {
+			  setTimeout(function () 
+			  {
+				  //define the colors first.
 				  let r = Math.floor(Math.random()*255);
 				  let g = Math.floor(Math.random()*255);
 				  let b = Math.floor(Math.random()*255);
-	  
 				  let rgb = "rgb("+ r +", "+ g +", "+ b +")";
-				  console.log("colors: " + rgb);
+
 				  document.getElementById("helloWorld").style.color = rgb;
 			  }, 3000)
 		  });
 	  };
 
-	//number 12
+	/**
+	 * 12. Walk the DOM
+Define function walkTheDOM(node, func)
+This function should traverse every node in the DOM. Use recursion.
+On each node, call func(node).
+	 */
 	function walkTheDOM(node, func) {
         func(node);
         node = node.firstChild;
@@ -175,4 +250,8 @@ If values cannot be added, put "Cannot add" in the <span> element
             walkTheDOM(node, func);
             node = node.nextSibling;
         }
-    };
+	};
+	
+	walkDOM(document.body, function (node) {
+		console.log(node.tagName);
+	});

@@ -8,6 +8,13 @@ function fib(n){
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
+/**
+ * 2. Bubble Sort
+Define function: bubbleSort(numArray)
+Use the bubble sort algorithm to sort the array.
+Return the sorted array.
+ */
+
 function bubbleSort(numArray){
 let swapped;
 do {
@@ -25,6 +32,11 @@ do {
     }while(swapped);
 };
  
+/**
+ * 3. Reverse String
+Define function: reverseStr(someStr)
+Reverse and return the String.
+ */
 
 function reverseStr(someStr){
 
@@ -36,6 +48,12 @@ return result;
 
 };
 
+/**
+ * 4. Factorial
+Define function: factorial(someNum)
+Use recursion to compute and return the factorial of someNum.
+ */
+
 function factorial(someNum){
     if(someNum == 0){
         return 1
@@ -44,6 +62,13 @@ function factorial(someNum){
         return someNum * factorial(someNum - 1);
     }
 };
+
+/**
+ * 5. Substring
+Define function substring(someStr, length, offset)
+Return the substring contained between offset and (offset + length) inclusively.
+If incorrect input is entered, use the alert function and describe why the input was incorrect.
+ */
 
 function substring(someStr, length, offset){
 
@@ -60,6 +85,13 @@ function substring(someStr, length, offset){
 	return subStr.join("");
 
 };
+
+/**
+ * 6. Even Number
+Define function: isEven(someNum)
+Return true if even, false if odd.
+Do not use % operator.
+ */
 
 function isEven(n){
  //convert n to a sting so that if n contains a decimal value of .5 after division by 2
@@ -78,6 +110,10 @@ function isEven(n){
 
 };
 
+// 7. Palindrome
+// Define function isPalindrome(someStr)
+// Return true if someStr is a palindrome, otherwise return false
+
 function isPalindrome(str){
     let theReg =  /[^A-Za-z0-9]/g;
     let lower = str.toLowercase().replace(theReg, "");
@@ -87,9 +123,27 @@ function isPalindrome(str){
 
 };
 
-function printShape(n){
-
-};
+// 8. Shapes
+// Define function: printShape(shape, height, character)
+// shape is a String and is either "Square", "Triangle", "Diamond".
+// height is a Number and is the height of the shape. Assume the number is odd.
+// character is a String that represents the contents of the shape. Assume this String contains just one character.
+// Use a switch statement to determine which shape was passed in.
+// Use the console.log function to print the desired shape.
+// Example for printShape("Square", 3, "%");
+// %%%
+// %%%
+// %%%
+// Example for printShape("Triangle", 3, "$");
+// $
+// $$
+// $$$
+// Example for printShape("Diamond", 5, "*");
+//   *
+//  ***
+// *****
+//  ***
+//   *
 
 // 9. Object literal
 // Define function traverseObject(someObj)
@@ -154,6 +208,14 @@ var john = new person("John", 30);
 // Define function getPerson(name, age)
 // The following line should set a Person object to the variable john:
 // 	var john = getPerson("John", 30)
-function getPerson(name, age){
-    let person = {name, age};
+
+// let getPerson = {
+//     name : 'name',
+//     age : 20
+// }
+// var john = getPerson("John", 30);
+
+function getperson(name, age)
+{
+    return {name:name, age:age};
 }
